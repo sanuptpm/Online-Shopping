@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<form action="{% url 'userhome' %}" method="POST" >{% csrf_token %}
+<br>
+<table align="center">
+
+	
+</table>
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+
+                         <li><a href="/users/login/" class="button-style">Login</a></li>
+                         <li><a href="/users/add" class="button-style">Sign Up</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         
+                    </ul>
+               </div>
+               <br>
+<!--<table><tr><td> Enter Pincode :</td><td>{{form.pincode}}</td><td>{{ form.pincode.errors }}</td></tr>
+     <tr><td></td><td><input type="submit" value="CHECK" /></td></tr></table>--> 
+
+
+{% for catagory in catagory %}
+
+      <table><tr><td><a href="/products/home/{{catagory.id}}" class="button-style">BUY {{ catagory.cname}} NOW</a></td></tr></table> 
+     
+
+     <br>
+{% endfor %}
+
+
+{% endblock %}

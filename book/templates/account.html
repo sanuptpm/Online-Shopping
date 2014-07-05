@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h1>My Profile</h1>
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+<table>
+	<tr><td><a href="/change/password/" class="button-style">Change Password</a></td></tr>
+
+	{% if user.id != 1 %}
+	     <tr><td><a href="/personal/details/" class="button-style">Personal Details</a></td></tr>
+	     <tr><td><a href="/users/profile/" class="button-style">Update Profile</a></td></tr>
+	     <tr><td><a href="/users/cart/" class="button-style">My Orders</a></td></tr>
+	     <tr><td><a href="/order/cancel/" class="button-style">Cancel My Orders</a></td></tr>
+	{% endif %}
+	{% if user.id == 1 %}
+	     <tr><td><a href="/catagory/add/" class="button-style">Add Catagory</a></td></tr>
+	     <tr><td><a href="/products/add/" class="button-style">Add Products</a></td></tr>
+	     <tr><td><a href="/catagory/del/" class="button-style">Delete Catagory</a></td></tr>
+	     <tr><td><a href="/products/del/" class="button-style">Delete Products</a></td></tr>
+	     <tr><td><a href="/products/delivary/" class="button-style">products delivery details</a></td></tr>
+	{% endif %}
+      
+</table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+<h1>Profile Update</h1>
+<form action="{% url 'profileupdate' %}" method="POST" >{% csrf_token %}
+	<br>
+    <!--{{ form.non_field_errors }}-->
+    <table>
+    <tr><td>First Name:</td><td>{{profile.fname}}</td><td>{{ profile.fname.errors }}</td></tr>
+    <tr><td>Last Name:</td><td>{{profile.lname}}</td><td>{{ profile.lname.errors }}</td></tr>
+    <tr><td>Email Id:</td><td>{{profile.emailid}}</td><td>{{ profile.emailid.errors }}</td></tr>
+    <tr><td>Address:</td><td>{{profile.address}}</td><td>{{ profile.address.errors }}</td></tr>
+    <tr><td>Phone:</td><td>{{profile.phone}}</td><td>{{ profile.phone.errors }}</td></tr>
+
+    <tr><td></td><td><input type="submit" value="Update Profile" /></td></tr>
+    </table>
+
+
+
+
+
+{% endblock %}

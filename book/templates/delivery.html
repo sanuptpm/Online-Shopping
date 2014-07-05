@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{% block content %}
+<form action="{% url 'productsdelivery' %}" method="POST" >{% csrf_token %}
+
+<h1>DELIVERY DETAILS</h1>
+
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+{% for products in product  %}
+     {% for carts in cart %}
+         {% if products.id == carts.pid %}
+             <br>
+             * DELIVERY ID :{{ carts.id }}
+             <br>
+             * Product Name : {{ products.pname }}
+             <br>
+             * Price : {{ products.price}}
+             <br>
+             * No Items :{{ carts.noitem }}
+             <br>
+             * Purchase Date :{{ carts.purdate }}
+             <br>
+             
+             {% for users in user %}
+                 {% if us.id == carts.uid %}
+                    
+                     * Address :{{users.userprofile.address}}
+                     <br>
+                     Phone :{{users.phone}}
+                     <br>
+                 {% endif %}
+
+             {% endfor %}
+
+             <br>
+
+             {% if carts.status == '1' %}
+                 <p style="color:green;margin-left:20px;">* Delivery Status : Delivered</p>
+             {% else %}
+                 <p style="color:blue;margin-left:20px;">* Delivery Status : Not Delivered</p>
+             {% endif %}
+             <br>
+
+
+             {% endif %}
+     {% endfor %}
+{% endfor %}
+<br>
+
+<table>
+    <tr><td>DELIVERY ID : </td><td>{{form.deliveryid}}</td><td>{{ form.deliveryid.errors }}</td></tr>
+    <tr><td>Status : </td><td>{{form.status}}</td></tr>
+    <tr><td></td><td><input type="submit" value="Save Status" /></td></tr>
+</table>
+
+
+
+
+{% endblock %}

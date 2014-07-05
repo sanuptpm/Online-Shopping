@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Endearing Green 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130425
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css">
+<link href="/static/book/theme/default.css" rel="stylesheet" type="text/css" media="all" />
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="wrapper-bg">
+	<div id="wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="/users/home"><span>ONLINE</span>SHOPPING</a></h1><span>Free Home Delivary @ </span>24 X 7 <span>Cash on Delivery</span>
+			</div>
+			<div id="menu">
+				{% block title %}{% endblock %}
+				{% block head %}{% endblock %}
+				<ul>
+					<li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+
+					<li><a href="/users/login/" class="button-style">Login</a></li>
+					<li><a href="/users/add" class="button-style">Sign Up</a></li>
+					<li><a href="/condition" class="button-style">Conditions</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="banner" class="container"> <img src="/static/book/theme/images/header-photo.jpg" width="1200" height="300" alt="" /> </div>
+		<div id="three-column" class="container">
+			
+				<h2><span>CATAGORIES</span></h2>
+				<br>
+
+			
+			<div class="tbox1">
+				<div class="box-style box-style01">
+					<div class="content"> <a href="#" class="image image-full"><img src="/static/book/theme/images/img01.jpg" alt=""></a>
+						<h2>Mobiles</h2>
+						<!--<p>......................................................................................... </p>-->
+						 </div>
+				</div>
+			</div>
+			<div class="tbox2">
+				<div class="box-style box-style02">
+					<div class="content"> <a href="#" class="image image-full"><img src="/static/book/theme/images/img02.jpg" alt=""></a>
+						<h2>Books</h2>
+						
+						 </div>
+				</div>
+			</div>
+			<div class="tbox3">
+				<div class="box-style box-style03">
+					<div class="content"> <a href="#" class="image image-full"><img src="/static/book/theme/images/img.jpg" alt=""></a>
+						<h2>Cameras </h2>
+						
+						 </div>
+				</div>
+			</div>
+
+		</div>
+
+
+		
+
+        <div id="header" class="container">
+
+			<div id="menu">
+
+				 {% for catagory in catagory %}
+
+		             <li><a href="/products/home/{{catagory.id}}" class="button-style">BUY {{ catagory.cname}} NOW</a></li>
+
+	             {% endfor %}		
+					
+				
+			</div>
+		</div>
+
+
+
+	</div>
+	<div id="footer-content" class="container">
+		{% block content %}{% endblock %}
+		
+ 
+		<!--<div id="fbox1">
+			<h2>Recent Updates</h2>
+			<ul class="style3">
+				<li class="first">
+					<p class="date"><a href="#">April<b>20</b></a></p>
+					<h3>Amet sed volutpat mauris</h3>
+					<p><a href="#">Mauris tempus nibh sodales adipiscing dolore.</a></p>
+				</li>
+				<li>
+					<p class="date"><a href="#">April<b>18</b></a></p>
+					<h3>Sagittis diam dolor sit amet</h3>
+					<p><a href="#">Duis arcu tortor fringilla sed  sed magna.</a></p>
+				</li>
+				<li>
+					<p class="date"><a href="#">April<b>15</b></a></p>
+					<h3>Adipiscing sed consequat</h3>
+					<p><a href="#">Pharetra ac velit sed in volutpat nisl mauris vel.</a></p>
+				</li>
+				<li>
+			</ul>
+		</div>
+		<div id="fbox2">
+			<h2>About</h2>
+			<p><span> Hello!</span></p>
+<p>
+It's nice of you to take the time to get to know us better. Here are some things about us that we thought you might like to know.</p>
+<p>
+online shopping went live in 2014 with the objective of making books easily available to anyone who had internet access. Today, we're present across various categories including mobiles, cameras, computers – and still counting!
+</p>
+<p>
+Be it our path-breaking services like Cash on Delivery, a 30-day replacement policy, free shipping - and of course the great prices that we offer, everything we do revolves around our obsession with providing our customers a memorable online shopping experience.
+<p>
+So it's no surprise that we're a favourite online shopping destination.</p>
+			 </div>
+		<div id="fbox3">
+			<h2>Contact</h2>
+			                    
+
+
+
+
+			<ul class="style5">
+				<li class="first"><span class="address">Address</span> <span class="address-01">onlineshopping Internet Private Limited, <br />
+					pathanapuram - 689695,, Kerala, India</span> </li>
+				<li> <span class="mail">Mail</span> <span class="mail-01"><a href="#">onlineshopping@gmail.com</a></span> </li>
+				<li> <span class="phone">Phone</span> <span class="phone-01">(+91) 7736579488</span> </li>
+			</ul>
+		</div>-->
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright © 2014 onlineshopping.com. All rights reserved.</p>
+</div>
+
+
+
+
+
+</body>
+</html>

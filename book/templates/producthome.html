@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+
+                         <li><a href="/users/login/" class="button-style">Login</a></li>
+                         <li><a href="/users/add" class="button-style">Sign Up</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         
+                    </ul>
+               </div>
+
+
+
+{% for products in products %}
+
+          <h3><a href="/products/details/{{ products.id}}">{{ products.pname}}</a></h3>
+          
+          <br>
+{% endfor %}
+
+
+{% endblock %}

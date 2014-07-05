@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+
+
+
+     <form action="{% url 'addproduct' %}" method="POST" enctype="multipart/form-data" >{% csrf_token %}
+	 <h1>Add Products</h1>
+    <table>
+    <tr><td>Catagory Name :</td><td>{{form.cname}}
+
+    <!--   <select name="dropdown1">
+         {% for catagorynames in catagoryname %} 
+             <option >{{ catagorynames.cname }}</option>
+         {% endfor %}
+       </select>-->
+
+    </td></tr>
+    <tr><td>Product Name :</td><td>{{form.pname}}</td><td>{{ form.pname.errors }}</td></tr>
+    <tr><td>Discription :</td><td>{{form.discription}}</td> <td>{{ form.discription.errors }}</td></tr>
+    <tr><td>Price :</td><td>{{form.price}}</td><td>{{ form.price.errors }}</td></tr>
+    <tr><td>Number Of Items :</td><td>{{form.noitem}}</td><td>{{ form.noitem.errors }}</td></tr>
+    <tr><td>Upload Image :</td><td>{{form.photo}}</td><td>{{ form.photo.errors }}</td></tr>
+    <tr><td></td><td><input type="submit" value="Save Changes" /></td></tr>
+
+    </table>
+
+    
+    
+  
+
+{% endblock %}

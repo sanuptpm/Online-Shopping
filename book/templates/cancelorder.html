@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+<h1>CANCEL MY ORDER</h1>
+
+<form action="{% url 'cancelorder' %}" method="POST" >{% csrf_token %}
+
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+{% for products in product  %}
+     {% for carts in cart %}
+         {% if products.id == carts.pid %}
+             <br>
+             * Name : {{ products.pname }}
+             <br>
+             * Price : {{ products.price}}
+             <br>
+             * Order ID : {{ carts.id }}
+             <br>
+             {% endif %}
+     {% endfor %}
+{% endfor %}
+<br>
+<br>
+
+<table>
+    <tr><td>Enter Order Id For Cancel Order :</td>
+    <td>{{form.oname}}</td>
+    <td>{{ form.oname.errors }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Cancel Order" />
+</td>
+    </tr>
+</table>
+ 
+
+
+{% endblock %}

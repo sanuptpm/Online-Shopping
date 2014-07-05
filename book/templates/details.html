@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+{% for products in product %}
+     <form action="{% url 'details' products.id %}" method="POST" >{% csrf_token %}
+     <h1>{{ products.pname}}</h1>
+    
+     <br>
+    <img src="{{ products.photo.url }}" height="200" width="250" border="1"/><!--image dispaly-->
+    <br>
+    {% if products.noitem == 0 %}
+         * Available Number of Items : Out of Stock
+    {% else %}
+         * Available Number of Items : {{ products.noitem}}
+    {% endif %}
+
+     <br>
+     * Name : {{ products.pname}}
+     <br>
+     * Price : {{ products.price}}
+     <br>
+     * Discription : {{ products.discription}}
+     <br>
+
+{% endfor %}
+* No: of Items You Required : <input type="text" name="noitems">
+
+<input type="submit" value="BUY NOW" />
+
+
+<br>
+<br>
+<br>
+<h3><p style="color:green;margin-left:20px;"> * 30 Day Replacement Guarantee.   <br> * Standard delivery in 4-7 business days.</p></h3>
+
+
+{% endblock %}

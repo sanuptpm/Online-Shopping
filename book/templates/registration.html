@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+
+                         <li><a href="/users/login/" class="button-style">Login</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         
+                    </ul>
+               </div>
+
+
+
+<h1>! Sign Up For Free</h1>
+<form action="{% url 'adduser' %}" method="POST" >{% csrf_token %}
+    <table>
+    <tr><td>{{form}}</td></tr>
+    <tr><td></td><td><input type="submit" value="SIGN UP NOW" /></td></tr>
+    </table>
+
+
+
+
+{% endblock %}

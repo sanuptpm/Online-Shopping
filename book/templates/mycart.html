@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<!--{% for cart in carts %}
+     
+     * cart product id : {{ cart.pid }}
+
+
+
+{% endfor %}
+<br>
+{% for product in products %}
+     
+     <br>
+     * Name : {{ product.pname }}
+     <br>
+     * Id : {{ product.id}}
+     <br>
+{% endfor %}-->
+<h1>MY CART</h1>
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+{% for product in products  %}
+     {% for cart in carts %}
+         {% if product.id == cart.pid %}
+             <br>
+             * Name : {{ product.pname }}
+             <br>
+             * Price : {{ product.price}}
+             <br>
+             * No Items :{{ cart.noitem }}
+             <br>
+             * Purchase Date :{{ cart.purdate }}
+             <br>
+
+             {% if cart.status == '1' %}
+                 <p style="color:green;margin-left:20px;">* Delivery Status : Delivered</p>
+             {% else %}
+                 <p style="color:blue;margin-left:20px;">* Delivery Status :  Not Delivered</p>
+             {% endif %}
+             <br>
+
+         {% endif %}
+     {% endfor %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h1>PERSONAL DETAILS</h1>
+
+
+               <div id="menu">  
+               
+                    <ul>
+                         <li class="active"><a href="/users/home" accesskey="1" title="">Homepage</a></li>
+                         <li><a href="/users/account/" class="button-style">Profile</a></li>
+                         <li><a href="/about" class="button-style">About Us</a></li>
+                         <li><a href="/contact" class="button-style">Contact Us</a></li>
+                         <li><a href="/users/logout/" class="button-style">LogOut</a></li>
+                         
+                    </ul>
+               </div>
+
+
+
+
+<table>
+    <tr><td>User Name :</td><td>{{user}}</td></tr>
+    <tr><td>First Name :</td><td>{{user.first_name}}</td></tr>
+    <tr><td>Last Name :</td><td>{{user.last_name}}</td></tr>
+    <tr><td>Email Id      :</td><td>{{user.email}}</td></tr>
+    <tr><td>Address :</td><td>{{profile.address}}</td></tr>
+    <tr><td>Phone :</td><td>{{profile.phone}}</td></tr>
+ 
+</table>
+
+{% endblock %}
